@@ -2,12 +2,20 @@ package electricalsinventorysystem;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import java.awt.FlowLayout;
+import javax.swing.*;
 
-public class App {
 
-	private JFrame frame;
+import java.awt.Color;
+import java.awt.Container;
+
+
+public class App extends JFrame{
+
+	/**
+	 * TODO: find out what this does
+	 */
+	private static final long serialVersionUID = 1L;
+	private JButton btnItem;
 
 	/**
 	 * Launch the application.
@@ -16,8 +24,8 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					App window = new App();
-					window.frame.setVisible(true);
+					App mainWindowApp = new App();
+					mainWindowApp.setVisible(true);
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
@@ -36,10 +44,25 @@ public class App {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setTitle("Electricals Inventory System");
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		Container appContentPane = this.getContentPane();
+		appContentPane.setBackground(Color.LIGHT_GRAY);
+		appContentPane.setBounds(100, 100, 450, 300);		
+		appContentPane.setLayout(null);
+		
+		btnItem = new JButton("ITEMS");
+		btnItem.setBounds(10, 11, 176, 86);
+		appContentPane.add(btnItem);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 125, 414, 2);
+		appContentPane.add(separator);
+		
+		
 	}
-
 }

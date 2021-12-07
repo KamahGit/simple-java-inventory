@@ -1,0 +1,51 @@
+{
+	"folders": {},
+	"connections": {
+		"mysql8-17d86592cbe-78ed83a40acbae6b": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "electricals_inventory",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "electricals_inventory",
+				"url": "jdbc:mysql://localhost:3306/electricals_inventory",
+				"home": "mysql_client",
+				"type": "dev",
+				"properties": {
+					"connectTimeout": "20000",
+					"rewriteBatchedStatements": "true",
+					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2"
+				},
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"virtual-models": {
+		"mysql8-17d86592cbe-78ed83a40acbae6b": {
+			"electricals_inventory": {
+				":customer": {
+					"properties": {
+						"erd.diagram.state": {
+							"serialized": "<diagram version=\"1\" name=\"empty\" time=\"202112041949\"><entities><data-source id=\"mysql8-17d86592cbe-78ed83a40acbae6b\"><entity id=\"1\" name=\"customer\" fq-name=\"electricals_inventory.customer\" order=\"0\" color-bg=\"124,62,31\" x=\"467\" y=\"118\"><path name=\"electricals_inventory\"/></entity><entity id=\"2\" name=\"goods_repair\" fq-name=\"electricals_inventory.goods_repair\" order=\"1\" x=\"182\" y=\"376\"><path name=\"electricals_inventory\"/></entity><entity id=\"3\" name=\"job\" fq-name=\"electricals_inventory.job\" order=\"2\" x=\"178\" y=\"20\"><path name=\"electricals_inventory\"/></entity><entity id=\"4\" name=\"sales\" fq-name=\"electricals_inventory.sales\" order=\"3\" x=\"20\" y=\"87\"><path name=\"electricals_inventory\"/></entity></data-source></entities><relations><relation name=\"fk_customer\" fq-name=\"electricals_inventory.goods_repair.fk_customer\" type=\"fk\" pk-ref=\"1\" fk-ref=\"2\"/><relation name=\"fk_customerid\" fq-name=\"electricals_inventory.job.fk_customerid\" type=\"fk\" pk-ref=\"1\" fk-ref=\"3\"/><relation name=\"fk_customers\" fq-name=\"electricals_inventory.sales.fk_customers\" type=\"fk\" pk-ref=\"1\" fk-ref=\"4\"/><relation name=\"fk_job\" fq-name=\"electricals_inventory.sales.fk_job\" type=\"fk\" pk-ref=\"3\" fk-ref=\"4\"/></relations></diagram>"
+						}
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
